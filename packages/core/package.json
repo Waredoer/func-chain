@@ -1,7 +1,7 @@
 {
   "name": "@func-chain/core",
   "version": "1.0.0",
-  "description": "> TODO: description",
+  "description": "This package provides the core functionality for func-chain.",
   "author": {
     "name": "Waredoer",
     "url": "https://waredoer.com"

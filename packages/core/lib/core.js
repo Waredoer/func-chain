@@ -9,5 +9,27 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const funcChain = (funcs) => (...args) => __awaiter(void 0, void 0, void 0, function* () { return funcs.reduce((_, func) => __awaiter(void 0, void 0, void 0, function* () { return yield func.apply(null, args); }), Promise.resolve()); });
+const funcChain = (funcs, errorHandler) => (...args) => __awaiter(void 0, void 0, void 0, function* () {
+    let res;
+    try {
+        for (let func of funcs) {
+            let _res = yield func.apply(null, args);
+            if (typeof _res === 'function') {
+                _res = _res(res);
+            }
+            if (_res !== undefined) {
+                res = _res;
+            }
+        }
+    }
+    catch (err) {
+        if (errorHandler) {
+            res = errorHandler(err);
+        }
+        else {
+            throw err;
+        }
+    }
+    return res;
+});
 exports.default = funcChain;
