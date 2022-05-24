@@ -8,6 +8,7 @@
   },
   "homepage": "https://github.com/Waredoer/func-chain/tree/main/packages/core#readme",
   "license": "MIT",
+  "type": "module",
   "main": "lib/core.js",
   "directories": {
     "lib": "lib",
