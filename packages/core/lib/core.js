@@ -33,3 +33,4 @@ const funcChain = (funcs, errorHandler) => (...args) => __awaiter(void 0, void 0
     return res;
 });
 exports.default = funcChain;
+//# sourceMappingURL=core.js.map
